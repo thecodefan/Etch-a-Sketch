@@ -13,7 +13,11 @@ function createGrid(number) {
       gridContainer.appendChild(div);
       div.addEventListener('mouseover', () => {
           div.style.backgroundColor = "red";
+
       });
+      if (number>100){
+        return `${prompt("ERROR")}`
+      }
   }
 
   document.querySelector(".grid-dimensions").textContent = `${number}x${number}`;
@@ -29,7 +33,7 @@ function createGrid(number) {
 
 const resetButton = document.querySelector(".reset-button");
 resetButton.addEventListener('click', () => {
-  const number = prompt("Enter grid size:");
+  const number = prompt("Enter grid size: ( 1 number only, less than 100)");
 
   createGrid(Number(number)); 
 });
