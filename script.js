@@ -15,7 +15,7 @@ function createGrid(number) {
           div.style.backgroundColor = "red";
 
       });
-      if (number>100){
+      if (number>100){//error if above 100
         return `${prompt("ERROR")}`
       }
   }
