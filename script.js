@@ -74,6 +74,32 @@ colorPickerButton.addEventListener('click', () => {
     }
 });
 //change this functionality to seperate buttons instead of prompt later
+let allowColorChange = true;
+
+document.addEventListener('keydown', (event) => {
+    if (event.key.toLowerCase() === 's') {
+        allowColorChange = !allowColorChange; // Toggle color change ability
+
+        const gridBoxes = document.querySelectorAll('.grid-box');
+        gridBoxes.forEach(box => {
+            box.style.pointerEvents = allowColorChange ? 'auto' : 'none'; // Enable or disable mouse events based on allowColorChange
+        });
+    }
+});
+
+const gridBoxes = document.querySelectorAll('.grid-box');
+gridBoxes.forEach(box => {
+    box.addEventListener('mouseover', () => {
+        if (allowColorChange) {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            const randomColor = `rgb(${red}, ${green}, ${blue})`;
+            box.style.backgroundColor = randomColor;
+        }
+    });
+});
+
 
 
 createGrid(12); //initial grid creation
