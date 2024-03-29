@@ -21,6 +21,7 @@ function createGrid(number) {
   }
 
   document.querySelector(".grid-dimensions").textContent = `${number}x${number}`;
+  document.querySelector(".grid-dimensions").style.color='blue';
 
   const clearButton = document.querySelector(".clear-button");
   clearButton.addEventListener('click', () => {
@@ -74,15 +75,20 @@ colorPickerButton.addEventListener('click', () => {
     }
 });
 //change this functionality to seperate buttons instead of prompt later
+
+//
+
+//
+
 let allowColorChange = true;
 
 document.addEventListener('keydown', (event) => {
     if (event.key.toLowerCase() === 's') {
-        allowColorChange = !allowColorChange; // Toggle color change ability
+        allowColorChange = !allowColorChange; //toggle color change ability
 
         const gridBoxes = document.querySelectorAll('.grid-box');
         gridBoxes.forEach(box => {
-            box.style.pointerEvents = allowColorChange ? 'auto' : 'none'; // Enable or disable mouse events based on allowColorChange
+            box.style.pointerEvents = allowColorChange ? 'auto' : 'none'; //enable or disable mouse events based on allowColorChange
         });
     }
 });
