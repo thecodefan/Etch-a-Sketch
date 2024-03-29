@@ -54,7 +54,26 @@ randomColorButton.addEventListener('click', () => {
         });
     });
 });
+const colorPickerButton = document.querySelector(".color-picker-button");
 
+colorPickerButton.addEventListener('click', () => {
+    const colorInput = prompt("Choose a color from: black, red, yellow, blue, green, orange, pink, gray");
+
+    const validColors = ['black', 'red', 'yellow', 'blue', 'green', 'orange', 'pink', 'gray'];
+    const chosenColor = colorInput.toLowerCase();
+
+    if (validColors.includes(chosenColor)) {
+        const gridBoxes = document.querySelectorAll('.grid-box');
+        gridBoxes.forEach(box => {
+            box.addEventListener('mouseover', () => {
+                box.style.backgroundColor = chosenColor;
+            });
+        });
+    } else {
+        alert("Invalid color choice. Please choose from the provided options.");
+    }
+});
+//change this functionality to seperate buttons instead of prompt later
 
 
 createGrid(12); //initial grid creation
