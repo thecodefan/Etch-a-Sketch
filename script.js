@@ -38,4 +38,23 @@ resetButton.addEventListener('click', () => {
   createGrid(Number(number)); 
 });
 
-createGrid(12); // Initial grid creation
+const randomColorButton = document.querySelector(".random-color-button");
+randomColorButton.addEventListener('click', () => {
+    //adds event listener to the random color button
+
+    const gridBoxes = document.querySelectorAll('.grid-box');
+    gridBoxes.forEach(box => {
+        box.addEventListener('mouseover', () => {
+            //change background color to a random RGB color
+            const red = Math.floor(Math.random() * 256); //random value between 0 and 255 for red
+            const green = Math.floor(Math.random() * 256); //random value between 0 and 255 for green
+            const blue = Math.floor(Math.random() * 256); //random value between 0 and 255 for blue
+            const randomColor = `rgb(${red}, ${green}, ${blue})`;
+            box.style.backgroundColor = randomColor;
+        });
+    });
+});
+
+
+
+createGrid(12); //initial grid creation
